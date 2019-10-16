@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="DotNetConf2019.Features.LabelSample.LabelSampleView">
+	<ContentPage.Content>
+		<StackLayout>
+			<Label TextType="Html" Text="{Binding Text}" />
+			
+			<Label TextType="Html" Text="&lt;h1&gt;Hello World!&lt;/h1&gt;&lt;br/&gt;SecondLine" />
+
+			<Label TextType="Html">
+				<Label.Text>
+					<x:String>
+						<![CDATA[
+							<h1>Hello world!</h1><br/>
+							SecondLine
+						]]>
+					</x:String>
+				</Label.Text>
+			</Label>
+
+			<Button x:Name="BtnBigRedButton"
+					Text="Big red button" TextColor="White"
+					BackgroundColor="Red"
+					CornerRadius="75"
+					HeightRequest="150" WidthRequest="150" Command="{Binding LoadMoreDataForVasileo}"
+					HorizontalOptions="Center"/>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:s="clr-namespace:DotNetConf2019.Resources"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             mc:Ignorable="d"
+             x:Class="DotNetConf2019.Features.HotReload.HotReloadView">
+	<!--<ContentPage.Resources>
+		<ResourceDictionary>
+			<Style x:Key="BigRedButton" TargetType="Button">
+				<Setter Property="BackgroundColor" Value="Red" />
+				<Setter Property="HeightRequest" Value="200" />
+				<Setter Property="WidthRequest" Value="200" />
+				<Setter Property="CornerRadius" Value="100" />
+				<Setter Property="HorizontalOptions" Value="Center" />
+				<Setter Property="VerticalOptions" Value="Center" />
+				<Setter Property="FontSize" Value="Header" />
+			</Style>
+		</ResourceDictionary>
+	</ContentPage.Resources>-->
+	
+    <ContentPage.Content>
+        <StackLayout>
+			<Label x:Name="LblSample"
+				   Text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." 
+				   VerticalOptions="Start" HorizontalOptions="CenterAndExpand" />
+
+			<ListView>
+				<ListView.ItemsSource>
+					<x:Array Type="{x:Type x:String}">
+						<x:String>mono</x:String>
+						<x:String>monodroid</x:String>
+						<x:String>monotouch</x:String>
+						<x:String>monorail</x:String>
+						<x:String>monodevelop</x:String>
+						<x:String>monotono</x:String>
+						<x:String>monopoly</x:String>
+					</x:Array>
+				</ListView.ItemsSource>
+			</ListView>
+		</StackLayout>
+    </ContentPage.Content>
+</ContentPage>

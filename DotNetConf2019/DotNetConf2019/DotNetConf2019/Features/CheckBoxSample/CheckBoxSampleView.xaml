@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="DotNetConf2019.Features.CheckBoxSample.CheckBoxSampleView">
+    <ContentPage.Content>
+        <Grid Padding="20" ColumnSpacing="5"
+              HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <CheckBox Grid.Row="0" Grid.Column="0" />
+            <Label Grid.Row="0" Grid.Column="1" Text="Defaul CheckBox" VerticalTextAlignment="Center" VerticalOptions="Center"/>
+            
+            <CheckBox Grid.Row="1" Grid.Column="0" IsEnabled="False" />
+            <Label Grid.Row="1" Grid.Column="1" Text="Disabled CheckBox" VerticalTextAlignment="Center" VerticalOptions="Center"/>
+            
+            <CheckBox Grid.Row="2" Grid.Column="0" IsChecked="True" Color="Black" />
+            <Label Grid.Row="2" Grid.Column="1" Text="Custom CheckBox 1" VerticalTextAlignment="Center" VerticalOptions="Center"/>
+            
+            <CheckBox Grid.Row="3" Grid.Column="0">
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal">
+                            <VisualState.Setters>
+                                <Setter Property="Color"
+                                        Value="Red" />
+                            </VisualState.Setters>
+                        </VisualState>
+
+                        <VisualState x:Name="IsChecked">
+                            <VisualState.Setters>
+                                <Setter Property="Color"
+                                        Value="Green" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </CheckBox>
+            <Label Grid.Row="3" Grid.Column="1" Text="Custom CheckBox 2" VerticalTextAlignment="Center" VerticalOptions="Center"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

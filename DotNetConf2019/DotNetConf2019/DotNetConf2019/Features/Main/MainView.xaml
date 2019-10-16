@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+				  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+				  xmlns:labelsample="clr-namespace:DotNetConf2019.Features.LabelSample"
+				  xmlns:refreshSample="clr-namespace:DotNetConf2019.Features.RefreshSample"
+				  xmlns:main="clr-namespace:DotNetConf2019.Features.Main"
+				  xmlns:hotreload="clr-namespace:DotNetConf2019.Features.HotReload"
+				  x:Class="DotNetConf2019.Features.Main.MainView">
+	<MasterDetailPage.Master>
+		<main:MasterView x:Name="MasterPage" />
+	</MasterDetailPage.Master>
+	<MasterDetailPage.Detail>
+		<NavigationPage>
+			<x:Arguments>
+				<hotreload:HotReloadView />
+            </x:Arguments>
+		</NavigationPage>
+	</MasterDetailPage.Detail>
+</MasterDetailPage>
