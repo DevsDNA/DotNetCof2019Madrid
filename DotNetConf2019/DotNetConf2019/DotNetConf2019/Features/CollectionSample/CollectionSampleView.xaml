@@ -25,7 +25,7 @@
         
         
         <DataTemplate x:Key="RedTemplate">
-            <Grid BackgroundColor="Red">
+            <Grid BackgroundColor="Orange">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40" />
                 </Grid.RowDefinitions>
@@ -36,7 +36,7 @@
         </DataTemplate>
 
         <DataTemplate x:Key="BlueTemplate">
-            <Grid BackgroundColor="Blue">
+            <Grid BackgroundColor="LightGreen">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40" />
                 </Grid.RowDefinitions>
@@ -52,7 +52,8 @@
     </ContentPage.Resources>
     
     <ContentPage.Content>
-        <CollectionView ItemsSource="{Binding Items}" 
+        <Grid>
+            <CollectionView ItemsSource="{Binding Items}" 
                         ItemTemplate="{StaticResource CustomTemplateSelector}"
                         RemainingItemsThreshold="10"
                         RemainingItemsThresholdReachedCommand="{Binding RefreshCommand}"
@@ -60,35 +61,38 @@
                         ItemSizingStrategy="MeasureFirstItem"
                         SelectionMode="Single"
                         Scrolled="OnCollectionViewScrolled">
-            <CollectionView.EmptyView>
-                <StackLayout>
-                    <Label Text="No results" Margin="10,25,10,10"
+                <CollectionView.EmptyView>
+                    <StackLayout>
+                        <Label Text="No results" Margin="10,25,10,10"
                             FontAttributes="Bold" FontSize="18"
                             HorizontalOptions="Fill" HorizontalTextAlignment="Center" />
-                    <Label Text="Press button to load data" 
+                        <Label Text="Press button to load data" 
                             FontAttributes="Italic" FontSize="12"
                             HorizontalOptions="Fill" HorizontalTextAlignment="Center" />
-                </StackLayout>
-            </CollectionView.EmptyView>
+                    </StackLayout>
+                </CollectionView.EmptyView>
 
 
-            <!--ItemsLayout="VerticalList"-->
-            <!--ItemsLayout="HorizontalList"-->
-            <CollectionView.ItemsLayout>
-                <GridItemsLayout Orientation="Vertical" Span="2" />
-                <!--<GridItemsLayout Orientation="Horizontal" Span="2" />-->
-            </CollectionView.ItemsLayout>
-            <CollectionView.Header>
-                <StackLayout BackgroundColor="LightGray" Padding="10">
-                    <Label Margin="10" Text="Header" FontAttributes="Bold" TextColor="Violet"/>
-                </StackLayout>
-            </CollectionView.Header>
-            <CollectionView.Footer>
-                <StackLayout BackgroundColor="LightGray" Padding="10">
-                    <Label Margin="10" Text="Footer" FontAttributes="Bold" TextColor="Violet"/>
-                </StackLayout>
-            </CollectionView.Footer>
+                <!--ItemsLayout="VerticalList"-->
+                <!--ItemsLayout="HorizontalList"-->
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.Header>
+                    <StackLayout BackgroundColor="LightGray" Padding="10">
+                        <Label Margin="10" Text="Header" FontAttributes="Bold" TextColor="Violet"/>
+                    </StackLayout>
+                </CollectionView.Header>
+                <CollectionView.Footer>
+                    <StackLayout BackgroundColor="LightGray" Padding="10">
+                        <Label Margin="10" Text="Footer" FontAttributes="Bold" TextColor="Violet"/>
+                    </StackLayout>
+                </CollectionView.Footer>
 
-        </CollectionView>
+            </CollectionView>
+
+            <ActivityIndicator Color="Black" IsVisible="{Binding Loading}" IsRunning="{Binding Loading}" InputTransparent="True"
+                               HorizontalOptions="End" VerticalOptions="End" HeightRequest="40" WidthRequest="40"/>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
