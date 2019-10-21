@@ -18,6 +18,9 @@
         {
             items = new ObservableCollection<string>();
             RefreshCommand = new Command(Refresh);
+
+            if (Device.RuntimePlatform == Device.iOS)
+                Refresh(null);
         }
 
         public ObservableCollection<string> Items
@@ -47,22 +50,22 @@
             if (!loading)
             {
                 Loading = true;
-                foreach (string item in await AddItems(50))
-                {
-                    if (Items.Count % 2 == 0)
-                        Items.Add($"{item} es impar");
-                    else
-                        Items.Add($"{item} es par");
-                }
-
-
-                //await foreach (string item in AddItemsAsync(50).ConfigureAwait(false))
+                //foreach (string item in await AddItems(50))
                 //{
                 //    if (Items.Count % 2 == 0)
                 //        Items.Add($"{item} es impar");
                 //    else
                 //        Items.Add($"{item} es par");
                 //}
+
+
+                await foreach (string item in AddItemsAsync(50).ConfigureAwait(false))
+                {
+                    if (Items.Count % 2 == 0)
+                        Items.Add($"{item} es impar");
+                    else
+                        Items.Add($"{item} es par");
+                }
 
                 Loading = false;
             }
